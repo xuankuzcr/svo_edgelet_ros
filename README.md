@@ -1,4 +1,11 @@
-# SVO_edgelet
+# SVO_edgelet_ros
+**Modified from [svo_edgelet](https://github.com/HeYijia/svo_edgelet).**
+**TODO:**
+
+* ROS interface
+* Change the display mode to rviz
+* Fuse IMU
+---
 ChangeList， compare with the origin svo:
 1. add edgelete feature
 2. inition VO: auto select H model and E model
@@ -8,16 +15,19 @@ ChangeList， compare with the origin svo:
 ## install（ubuntu）
 ### 安装依赖项
 * boost - c++ Librairies (thread and system are needed)
+	
 	> sudo apt-get install libboost-all-dev	
 * Eigen 3 - Linear algebra
+	
 	> apt-get install libeigen3-dev
 * Sophus - Lie groups
+
  	> cd workspace
  	> 
  	> git clone https://github.com/strasdat/Sophus.git	
  	> 
-    > cd Sophus	
-    > 
+ 	> cd Sophus	
+ 	> 
  	> <font color=red>git checkout a621ff</font>	
  	> 
  	> mkdir build	
