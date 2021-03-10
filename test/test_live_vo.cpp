@@ -51,7 +51,8 @@ BenchmarkNode::BenchmarkNode()
                                           -0.378740,0.133422, -0.001505, -0.001445);
     cam_ = new svo::PinholeCamera(640,480,407.763641, 453.693298, 267.111836,247.958895);
      */
-    cam_ = new svo::PinholeCamera(640,480,482.62565,480.83271, 323.96419, 261.20336, -0.031563,0.165711,0.001507,-0.00083,-0.18942);
+   // cam_ = new svo::PinholeCamera(640,512,8.6204125823337927e+02/2,8.6345560511126575e+02/2, 6.2633572097598585e+02/2, 5.3239736680174201e+02/2, -0.031563,0.165711,0.001507,-0.00083,-0.18942);
+   cam_ = new svo::PinholeCamera(640,512,433.9275,434.0748, 320.0464, 260.4712, -0.031563,0.165711,0.001507,-0.00083,-0.18942);
 
 
     vo_ = new svo::FrameHandlerMono(cam_);
@@ -77,7 +78,9 @@ BenchmarkNode::~BenchmarkNode()
 void BenchmarkNode::runFromFolder()
 {
 
-    cv::VideoCapture cap(1);  // open the default camera
+    cv::VideoCapture cap;  // open the default camera
+    cap.open("/home/chunran/rosbag2video/test_mono_factory.mp4");
+    std::cout<<"111111111111"<<std::endl;
 
     if (!cap.isOpened())  // check if we succeeded
         return ;
@@ -87,8 +90,12 @@ void BenchmarkNode::runFromFolder()
 
         cv::Mat image;
         cap.read(image);  // get a new frame from camera
-
+    // if(!image.empty())
+    // {
+        //     std::cout<<"222222222222"<<std::endl;
         assert(!image.empty());
+        //cv::resize(image,image,cv::Size(image.cols*0.5,image.rows*0.5),0,0,cv::INTER_LINEAR);
+        
         img_id++;
 
         cv::imshow("origin_image", image);
@@ -112,6 +119,7 @@ void BenchmarkNode::runFromFolder()
             std::cout<<"Frame pose: "<< vo_->lastFrame()->T_f_w_ <<std::endl;
 
         }
+    //}
 
     }
 

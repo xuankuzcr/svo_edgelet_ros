@@ -160,8 +160,8 @@ void FrameHandlerMono::addImage(const cv::Mat& img, const double timestamp)
                           map_.getClosestKeyframe(last_frame_));
 
   //if(new_frame_->id_ == 10)
-
   // debuge
+
 {
     cv::Mat img_new = new_frame_->img_pyr_[0].clone();
     /**/

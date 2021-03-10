@@ -1,7 +1,7 @@
 # SVO_edgelet_ros
 **Modified from [svo_edgelet](https://github.com/HeYijia/svo_edgelet).**
 **TODO:**
-
+* Add comments to svo_edgelet_ros
 * ROS interface
 * Change the display mode to rviz
 * Fuse IMU

@@ -1,0 +1,6 @@
+/home/chunran/svo_edgelet_ros/build/CMakeFiles/edit_cache.dir
+/home/chunran/svo_edgelet_ros/build/CMakeFiles/rebuild_cache.dir
+/home/chunran/svo_edgelet_ros/build/CMakeFiles/svo.dir
+/home/chunran/svo_edgelet_ros/build/CMakeFiles/test_pipeline.dir
+/home/chunran/svo_edgelet_ros/build/CMakeFiles/test_pipel_euroc.dir
+/home/chunran/svo_edgelet_ros/build/CMakeFiles/test_live_vo.dir

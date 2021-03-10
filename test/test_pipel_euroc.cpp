@@ -153,21 +153,22 @@ void BenchmarkNode::runFromFolder()
       //cerr << "ERROR: Calibration parameters to rectify stereo are missing!" << endl;
       return ;
   }
-
+  // output M1l,M2l
   cv::Mat M1l,M2l,M1r,M2r;
   cv::initUndistortRectifyMap(K_l,D_l,R_l,P_l.rowRange(0,3).colRange(0,3),cv::Size(cols_l,rows_l),CV_32F,M1l,M2l);
 
   const int nImages = vstrImageLeft.size();
 
   cv::Mat imLeft, imRight;
-  for(int ni=100; ni<nImages; ni++)
+  for(int ni=100; ni<nImages; ni++) //从第100帧开始读
   {
-    // Read left and right images from file
+    // Read left images from file
     imLeft = cv::imread(vstrImageLeft[ni],CV_LOAD_IMAGE_UNCHANGED);
 
     assert(!imLeft.empty());
 
     cv::Mat imLeft_rect;
+    //Distortion rect
     cv::remap(imLeft,imLeft_rect,M1l,M2l,cv::INTER_LINEAR);
 
     vo_->addImage(imLeft_rect, 0.01*ni);
